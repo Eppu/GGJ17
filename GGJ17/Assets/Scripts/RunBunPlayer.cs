@@ -45,6 +45,7 @@ public class RunBunPlayer : MonoBehaviour
 	{
 		if (isDead == false && hasWon == false)
 		{
+			anim.SetInteger ("Direction", 0);
 			playerCollider.size = new Vector2(runX, runY);
 		}
 		if (IsGrounded())
@@ -55,11 +56,13 @@ public class RunBunPlayer : MonoBehaviour
 			}
 			if (isDead == false && hasWon == false && Input.GetKey (KeyCode.DownArrow) || Input.GetKey (KeyCode.S)) 
 			{
+				anim.SetInteger ("Direction", 2);
 				playerCollider.size = new Vector2 (slideX, slideY);
 			}
 		}
 		else
 		{
+			anim.SetInteger ("Direction", 1);
 			playerCollider.size = new Vector2(jumpX, jumpY);
 		}
 		if (isDead == true) 
