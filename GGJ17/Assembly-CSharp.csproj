@@ -45,7 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ObjectKiller.cs" />
      <Compile Include="Assets\Scripts\PlatformMover.cs" />
+     <Compile Include="Assets\Scripts\PlatformSpawner.cs" />
      <Compile Include="Assets\Scripts\RunBunPlayer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Unity/Unity5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
