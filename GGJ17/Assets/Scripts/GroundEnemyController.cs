@@ -7,7 +7,7 @@ public class GroundEnemyController : MonoBehaviour
 
 	void Start () 
 	{
-		//Time.timeScale = 1;
+		Time.timeScale = 1;
 	}
 
 	void Update ()
@@ -25,7 +25,6 @@ public class GroundEnemyController : MonoBehaviour
 		if (other.gameObject.tag == "Player")
 		{
 			other.gameObject.GetComponent<RunBunPlayer> ().isDead = true;
-			//Time.timeScale = 0;
 		}
 	}
 }

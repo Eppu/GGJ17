@@ -13,7 +13,6 @@ public class GameController : MonoBehaviour
 	{
 		if(GameObject.Find("Player").GetComponent<RunBunPlayer>().isDead == true)
 		{
-			Debug.Log ("Increasing splat screen size");
 			splat.transform.localScale = Vector3.Lerp(splat.transform.localScale,
 				new Vector3(targetScale, targetScale, targetScale), Time.deltaTime * shrinkSpeed);
 
