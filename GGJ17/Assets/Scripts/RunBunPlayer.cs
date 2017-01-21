@@ -11,10 +11,19 @@ public class RunBunPlayer : MonoBehaviour
 	public bool hasFallen = false;
 	public GameObject gameManager;
 	Animator anim;
+	public Text text;
 	public AudioSource[] sounds;
 	public AudioSource noise1;
 	public AudioSource noise2;
 	public AudioSource noise3;
+	public AudioSource[] playerSounds;
+	public AudioSource sound1;
+	public AudioSource sound2;
+	public AudioSource sound3;
+	public AudioSource sound4;
+	bool soundplayed;
+
+	public AudioClip slideClip;
 
 	Transform playerFoot;
 
@@ -28,6 +37,8 @@ public class RunBunPlayer : MonoBehaviour
 	public float slideX;
 	public float slideY;
 
+	private float time;
+
 	void Start()
 	{
 		rb2d = gameObject.GetComponent<Rigidbody2D>();
@@ -35,6 +46,14 @@ public class RunBunPlayer : MonoBehaviour
 		playerFoot = transform.FindChild("PlayerFoot").transform;
 		gameManager = GameObject.Find("PointsManager");
 		anim = GetComponent<Animator>();
+		playerSounds = GetComponents<AudioSource> ();
+		sound1 = playerSounds [0];
+		sound2 = playerSounds [1];
+		sound3 = playerSounds [2];
+		sound4 = playerSounds [3];
+		soundplayed = false;
+		sound3.mute = true;
+
 //		sounds = GetComponents<AudioSource>();
 //		noise1 = sounds[0];
 //		noise2 = sounds[1];
@@ -45,19 +64,39 @@ public class RunBunPlayer : MonoBehaviour
 	{
 		if (isDead == false && hasWon == false)
 		{
+			sound3.Stop ();
+			text.text = time.ToString("F1") + " meters";
 			anim.SetInteger ("Direction", 0);
 			playerCollider.size = new Vector2(runX, runY);
 		}
 		if (IsGrounded())
 		{
+			if(!soundplayed)
+			{
+				sound2.Play ();
+				soundplayed = true;
+			}
 			if (isDead == false && hasWon == false && Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
 			{
-				PlayerJump();   
+				sound4.Play ();
+				sound3.Stop ();
+				sound2.Stop ();
+				PlayerJump();  
+				soundplayed = false;
 			}
 			if (isDead == false && hasWon == false && Input.GetKey (KeyCode.DownArrow) || Input.GetKey (KeyCode.S)) 
 			{
+				sound2.Pause ();
 				anim.SetInteger ("Direction", 2);
 				playerCollider.size = new Vector2 (slideX, slideY);
+			}
+			if (Input.GetKeyDown (KeyCode.DownArrow) || Input.GetKeyDown (KeyCode.S))
+			{
+				sound3.mute = false;
+			}
+			if (Input.GetKeyUp (KeyCode.DownArrow) || Input.GetKeyUp (KeyCode.S)) 
+			{
+				sound3.mute = true;
 			}
 		}
 		else
@@ -67,14 +106,21 @@ public class RunBunPlayer : MonoBehaviour
 		}
 		if (isDead == true) 
 		{
+			sound2.Stop ();
 			//Debug.Log ("You're dead!");
 		}
+	}
+
+	void FixedUpdate()
+	{
+		time += Time.deltaTime;
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Enemy")
 		{
+			sound2.Stop ();
 			noise1.Play();
 			Debug.Log("You died...");
 			noise3.Stop();

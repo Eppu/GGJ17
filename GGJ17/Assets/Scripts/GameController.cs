@@ -4,7 +4,7 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-	public float targetScale = 20.0f;
+	public float targetScale = 1f;
 	public float shrinkSpeed = 10.0f;
 	//public bool shrinking;
 	public GameObject splat;
@@ -18,11 +18,11 @@ public class GameController : MonoBehaviour
 
 			if(Input.GetKeyDown(KeyCode.R) || Input.GetKeyDown(KeyCode.Return) ||Input.GetKeyDown(KeyCode.Space))
 			{
-				Application.LoadLevel(Application.loadedLevel);
+				Application.LoadLevel(0);
 			}
 			if(Input.GetKeyDown(KeyCode.Escape))
 			{
-				Application.LoadLevel("mainmenu");
+				Application.Quit();
 			}
 		}
 	}

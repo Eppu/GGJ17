@@ -4,10 +4,13 @@ using System.Collections;
 public class GroundEnemyController : MonoBehaviour 
 {
 	public float moveSpeed = 5.0f;
+	public AudioSource squishSound;
+	public AudioClip playerDieSound;
 
 	void Start () 
 	{
 		Time.timeScale = 1;
+		squishSound = GetComponent<AudioSource>();
 	}
 
 	void Update ()
@@ -24,7 +27,10 @@ public class GroundEnemyController : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Player")
 		{
+			squishSound.Play ();
 			other.gameObject.GetComponent<RunBunPlayer> ().isDead = true;
+			other.gameObject.GetComponents<AudioSource> ();
+			squishSound.PlayOneShot (playerDieSound, 0.7f);
 		}
 	}
 }
