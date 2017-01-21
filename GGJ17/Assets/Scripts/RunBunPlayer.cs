@@ -62,6 +62,10 @@ public class RunBunPlayer : MonoBehaviour
 		{
 			playerCollider.size = new Vector2(jumpX, jumpY);
 		}
+		if (isDead == true) 
+		{
+			//Debug.Log ("You're dead!");
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -72,7 +76,7 @@ public class RunBunPlayer : MonoBehaviour
 			Debug.Log("You died...");
 			noise3.Stop();
 //			DieMe();  
-			rb2d.isKinematic = true;
+//			rb2d.isKinematic = true;
 			anim.enabled = false;
 		}
 		if (collision.gameObject.tag == "Goal")

@@ -1,11 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlatformSpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GroundEnemyController.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlatformSpawner.cs" Line="39" Column="30" />
-      <File FileName="Assets\Scripts\RunBunPlayer.cs" Line="88" Column="42" />
-      <File FileName="Assets\Scripts\PlatformMover.cs" Line="10" Column="2" />
-      <File FileName="Assets\Scripts\ObjectKiller.cs" Line="16" Column="1" />
+      <File FileName="Assets\Scripts\GameController.cs" Line="16" Column="47" />
+      <File FileName="Assets\Scripts\RunBunPlayer.cs" Line="67" Column="6" />
+      <File FileName="Assets\Scripts\PlatformSpawner.cs" Line="11" Column="21" />
+      <File FileName="Assets\Scripts\PlatformMover.cs" Line="22" Column="3" />
+      <File FileName="Assets\Scripts\ObjectKiller.cs" Line="5" Column="1" />
+      <File FileName="Assets\Scripts\AirEnemySpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\AirEnemyController.cs" Line="29" Column="4" />
+      <File FileName="Assets\Scripts\GroundEnemyController.cs" Line="10" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

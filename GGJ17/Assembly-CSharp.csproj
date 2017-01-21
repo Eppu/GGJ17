@@ -45,7 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AirEnemyController.cs" />
      <Compile Include="Assets\Scripts\AirEnemySpawner.cs" />
+     <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\GroundEnemyController.cs" />
      <Compile Include="Assets\Scripts\ObjectKiller.cs" />
      <Compile Include="Assets\Scripts\PlatformMover.cs" />
      <Compile Include="Assets\Scripts\PlatformSpawner.cs" />
