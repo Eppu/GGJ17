@@ -30,7 +30,7 @@ public class AirEnemyController : MonoBehaviour
 			squishSound.Play ();
 			other.gameObject.GetComponent<RunBunPlayer> ().isDead = true;
 			//Time.timeScale = 0;
-			squishSound.PlayOneShot(playerDieSound);
+			squishSound.PlayOneShot(playerDieSound, 0.5f);
 		}
 	}
 }

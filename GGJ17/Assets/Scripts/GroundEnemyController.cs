@@ -30,7 +30,7 @@ public class GroundEnemyController : MonoBehaviour
 			squishSound.Play ();
 			other.gameObject.GetComponent<RunBunPlayer> ().isDead = true;
 			other.gameObject.GetComponents<AudioSource> ();
-			squishSound.PlayOneShot (playerDieSound, 0.7f);
+			squishSound.PlayOneShot (playerDieSound, 0.5f);
 		}
 	}
 }
